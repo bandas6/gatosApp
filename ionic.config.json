@@ -1,0 +1,7 @@
+{
+  "name": "appgatos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
