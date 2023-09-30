@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { GatosService } from '../services/gatos/gatos.service';
+import { Gatos } from './interfaces/gatos.interface';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +9,17 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  listadoGatos: Gatos[] = []
+
+  constructor(private gatosService:GatosService) {
+    this.obtenerListadoGatos()
+  }
+
+  obtenerListadoGatos(){
+    this.gatosService.obtenerListadoGatos().subscribe((resp)=>{
+      this.listadoGatos = resp
+      console.log(this.listadoGatos)
+    })
+  }
 
 }
